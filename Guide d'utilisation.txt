@@ -1,0 +1,42 @@
+# ===== 1. Créer et activer l'environnement virtuel
+cd /d "C:\Users\ismai\OneDrive\Desktop\PFE\backend"
+python -m venv venv
+.\venv\Scripts\activate.bat
+
+
+
+# ===== 2. Installer les dépendances
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+pip install email-validator requests
+
+
+
+# ===== 3. (Optionnel — seulement si vous utilisez les modèles ML dans backend/urgence)
+cd /d "C:\Users\ismai\OneDrive\Desktop\PFE\backend\urgence"
+pip install -r requirements.txt
+REM Si vous devez installer PyTorch, suivez les instructions officielles (ex. CPU):
+REM pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+
+
+
+# ===== 4. Démarrer l'API (Terminal 1)
+cd /d "C:\Users\ismai\OneDrive\Desktop\PFE\backend"
+REM (si vous ouvrez un nouveau terminal, réactivez le venv :)
+.\venv\Scripts\activate.bat
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+
+
+# ===== 5. Ouvrir le frontend (Terminal 2 ou exécuter depuis l'Explorateur)
+start "" "C:\Users\ismai\OneDrive\Desktop\PFE\frontend\inscription.html"
+start "" "C:\Users\ismai\OneDrive\Desktop\PFE\frontend\connexion.html"
+REM Ouvrez d'autres pages si besoin, par ex:
+REM start "" "C:\Users\ismai\OneDrive\Desktop\PFE\frontend\tableau_bord_patient.html"
+
+
+
+# ===== 6. Accéder au système
++ Backend : http://localhost:8000
++ API Docs : http://localhost:8000/docs
++ Frontend : ouvrez directement les fichiers HTML (ex. inscription.html) dans votre navigateur
